@@ -29,7 +29,7 @@ namespace WindowsFormsTraktor
 
         public void CreateExcavator(object sender, EventArgs e)
         {
-            transport = new Traktor_Excavator(Color.Blue, Color.Green, 20, 0, 0, pictureBoxTraktor.Width, pictureBoxTraktor.Height, true, true);
+            transport = new TraktorExcavator(Color.Blue, Color.Green, 20, 0, 0, pictureBoxTraktor.Width, pictureBoxTraktor.Height, true, true);
             Draw();
         }
 

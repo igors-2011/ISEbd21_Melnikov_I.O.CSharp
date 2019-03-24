@@ -2,14 +2,14 @@
 
 namespace WindowsFormsTraktor
 {
-    class Traktor_Excavator : Traktor
+    class TraktorExcavator : Traktor
     {
         Color DopColor;
         
         public bool IsFrontBailer { private set; get; }
         public bool IsBackBailer { private set; get; }
 
-        public Traktor_Excavator(Color main, Color dop, int step, int startx, int starty, int picwidth, int picheight, bool frontbailer, bool backbailer) : base (main, step, startx, starty, picwidth, picheight)
+        public TraktorExcavator(Color main, Color dop, int step, int startx, int starty, int picwidth, int picheight, bool frontbailer, bool backbailer) : base (main, step, startx, starty, picwidth, picheight)
         {
             MainColor = main;
             DopColor = dop;
