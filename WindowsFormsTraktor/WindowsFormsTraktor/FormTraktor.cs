@@ -6,7 +6,7 @@ namespace WindowsFormsTraktor
 {
     public partial class FormTraktor : Form
     {
-        private Traktor traktor;
+        private ITransport transport;
 
         public FormTraktor()
         {
@@ -17,13 +17,19 @@ namespace WindowsFormsTraktor
         {
             Bitmap bmp = new Bitmap(pictureBoxTraktor.Width, pictureBoxTraktor.Height);
             Graphics gr = Graphics.FromImage(bmp);
-            traktor.DrawTraktor(gr);
+            transport.DrawTransport(gr);
             pictureBoxTraktor.Image = bmp;
         }
 
         public void CreateTraktor(object sender, EventArgs e)
         {
-            traktor = new Traktor(Color.Blue, Color.Green, true, true, 20, 0, 0, pictureBoxTraktor.Width, pictureBoxTraktor.Height);
+            transport = new Traktor(Color.Blue, 20, 0, 0, pictureBoxTraktor.Width, pictureBoxTraktor.Height);
+            Draw();
+        }
+
+        public void CreateExcavator(object sender, EventArgs e)
+        {
+            transport = new Traktor_Excavator(Color.Blue, Color.Green, 20, 0, 0, pictureBoxTraktor.Width, pictureBoxTraktor.Height, true, true);
             Draw();
         }
 
@@ -32,16 +38,16 @@ namespace WindowsFormsTraktor
             switch ((sender as Button).Name)
             {
                 case "btn_up":
-                    traktor.MoveTraktor(Traktor.MovingDirections.up);
+                    transport.MoveTransport(Vehicle.MovingDirections.up);
                     break;
                 case "btn_down":
-                    traktor.MoveTraktor(Traktor.MovingDirections.down);
+                    transport.MoveTransport(Vehicle.MovingDirections.down);
                     break;
                 case "btn_left":
-                    traktor.MoveTraktor(Traktor.MovingDirections.left);
+                    transport.MoveTransport(Vehicle.MovingDirections.left);
                     break;
                 case "btn_right":
-                    traktor.MoveTraktor(Traktor.MovingDirections.right);
+                    transport.MoveTransport(Vehicle.MovingDirections.right);
                     break;
             }
             Draw();
