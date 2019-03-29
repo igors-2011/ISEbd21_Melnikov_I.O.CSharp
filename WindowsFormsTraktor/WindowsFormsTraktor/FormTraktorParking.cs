@@ -32,7 +32,8 @@ namespace WindowsFormsTraktor
                 int place = parking + traktor;
                 Draw();
             }
-        }
+        }
+
         private void ParkTraktorExcavator(object sender, EventArgs e)
         {
             ColorDialog dialog = new ColorDialog();
