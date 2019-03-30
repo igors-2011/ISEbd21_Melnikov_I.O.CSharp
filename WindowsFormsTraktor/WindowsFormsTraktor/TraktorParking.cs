@@ -70,7 +70,8 @@ namespace WindowsFormsTraktor
                 }
                 g.DrawLine(pen, i * ParkingPlaceWidth, 0, i * ParkingPlaceWidth, 400);
             }
-        }
+        }
+
         public void Draw(Graphics g)
         {
             DrawMarking(g);
