@@ -59,16 +59,15 @@ namespace WindowsFormsTraktor
 
         private void DrawMarking(Graphics g)
         {
-            Pen pen = new Pen(Color.Black, 3);
-            g.DrawRectangle(pen, 0, 0, (ParkingPlaces.Length / 5) * ParkingPlaceWidth, 480);
+            Pen pen = new Pen(Color.Red, 5);
+            g.DrawRectangle(pen, 0, 0, (ParkingPlaces.Length / 5) * ParkingPlaceWidth, 350);
             for (int i = 0; i < ParkingPlaces.Length / 5; i++)
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    g.DrawLine(pen, i * ParkingPlaceWidth, j * ParkingPlaceHeight,
-                    i * ParkingPlaceWidth + 110, j * ParkingPlaceHeight);
+                    g.DrawLine(pen, i * ParkingPlaceWidth, j * ParkingPlaceHeight, i * ParkingPlaceWidth + 110, j * ParkingPlaceHeight);
                 }
-                g.DrawLine(pen, i * ParkingPlaceWidth, 0, i * ParkingPlaceWidth, 400);
+                g.DrawLine(pen, i * ParkingPlaceWidth, 0, i * ParkingPlaceWidth, 350);
             }
         }
 
