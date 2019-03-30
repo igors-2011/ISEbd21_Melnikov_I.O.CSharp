@@ -4,13 +4,7 @@ namespace WindowsFormsTraktor
 {
     public abstract class Vehicle : ITransport
     {
-        public enum MovingDirections
-        {
-            up,
-            down,
-            left,
-            right
-        }
+        
 
         protected int StartPosX;
         protected int StartPosY;
