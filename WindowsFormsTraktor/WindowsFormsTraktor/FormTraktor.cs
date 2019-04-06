@@ -32,16 +32,16 @@ namespace WindowsFormsTraktor
             switch ((sender as Button).Name)
             {
                 case "btn_up":
-                    traktor.MoveTraktor(Traktor.MovingDirections.up);
+                    traktor.MoveTraktor(MovingDirections.up);
                     break;
                 case "btn_down":
-                    traktor.MoveTraktor(Traktor.MovingDirections.down);
+                    traktor.MoveTraktor(MovingDirections.down);
                     break;
                 case "btn_left":
-                    traktor.MoveTraktor(Traktor.MovingDirections.left);
+                    traktor.MoveTraktor(MovingDirections.left);
                     break;
                 case "btn_right":
-                    traktor.MoveTraktor(Traktor.MovingDirections.right);
+                    traktor.MoveTraktor(MovingDirections.right);
                     break;
             }
             Draw();

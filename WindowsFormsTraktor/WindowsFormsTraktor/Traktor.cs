@@ -34,14 +34,6 @@ namespace WindowsFormsTraktor
             MovingStep = step;
         }
 
-        public enum MovingDirections
-        {
-            up,
-            down,
-            left,
-            right
-        }
-
         public void MoveTraktor(MovingDirections direction)
         {
             switch (direction)
