@@ -6,69 +6,97 @@ namespace WindowsFormsTraktor
 {
     public partial class FormTraktorParking : Form
     {
-        TraktorParking<ITransport> parking;
+        MultiLevelTraktorParking parking;
+
+        private const int levels = 5;
 
         private void Draw()
         {
-            Bitmap bmp = new Bitmap(pictureBoxParking.Width, pictureBoxParking.Height);
-            Graphics gr = Graphics.FromImage(bmp);
-            parking.Draw(gr);
-            pictureBoxParking.Image = bmp;
+            if (listBoxParkingLevels.SelectedIndex > -1)
+            {
+                Bitmap bmp = new Bitmap(pictureBoxParking.Width, pictureBoxParking.Height);
+                Graphics gr = Graphics.FromImage(bmp);
+                parking[listBoxParkingLevels.SelectedIndex].Draw(gr);
+                pictureBoxParking.Image = bmp;
+            }
         }
 
         public FormTraktorParking()
         {
             InitializeComponent();
-            parking = new TraktorParking<ITransport>(20, pictureBoxParking.Width, pictureBoxParking.Height);
+            parking = new MultiLevelTraktorParking(levels, pictureBoxParking.Width, pictureBoxParking.Height);
+            for (int i = 0; i < levels; i++)
+            {
+                listBoxParkingLevels.Items.Add("Уровень " + (i + 1));
+            }
+            listBoxParkingLevels.SelectedIndex = 0;
             Draw();
         }
 
         private void ParkTraktor(object sender, EventArgs e)
         {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (listBoxParkingLevels.SelectedIndex > -1)
             {
-                var traktor = new Traktor(dialog.Color, 0, 100, 1000, pictureBoxParking.Width, pictureBoxParking.Height);
-                int place = parking + traktor;
-                Draw();
+                ColorDialog dialog = new ColorDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    var traktor = new Traktor(dialog.Color, 0, 100, 1000, pictureBoxParking.Width, pictureBoxParking.Height);
+                    int place = parking[listBoxParkingLevels.SelectedIndex] + traktor;
+                    if (place == -1)
+                    {
+                        MessageBox.Show("Нет свободных мест", "Ошибка (но на самом деле ошибка это твоё рождение)",
+                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    Draw();
+                }
             }
         }
 
         private void ParkTraktorExcavator(object sender, EventArgs e)
         {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (listBoxParkingLevels.SelectedIndex > -1)
             {
-                ColorDialog dialogDop = new ColorDialog();
-                if (dialogDop.ShowDialog() == DialogResult.OK)
+                ColorDialog dialog = new ColorDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    var traktor = new TraktorExcavator(dialog.Color, dialogDop.Color, 0, 100, 1000, pictureBoxParking.Width, pictureBoxParking.Height, true, true);
-                    int place = parking + traktor;
-                    Draw();
+                    ColorDialog dialogDop = new ColorDialog();
+                    if (dialogDop.ShowDialog() == DialogResult.OK)
+                    {
+                        var traktor = new TraktorExcavator(dialog.Color, dialogDop.Color, 0, 100, 1000, pictureBoxParking.Width, pictureBoxParking.Height, true, true);
+                        int place = parking[listBoxParkingLevels.SelectedIndex] + traktor;
+                        Draw();
+                    }
                 }
             }
         }
 
         private void TakeTraktor(object sender, EventArgs e)
         {
-            if (maskedTextBoxPlaceNumber.Text != "")
+            if (listBoxParkingLevels.SelectedIndex > -1)
             {
-                var traktor = parking - Convert.ToInt32(maskedTextBoxPlaceNumber.Text);
-                if (traktor != null)
+                if (maskedTextBoxPlaceNumber.Text != "")
                 {
-                    Bitmap bmp = new Bitmap(pictureBoxTakenTransport.Width,pictureBoxTakenTransport.Height);
-                    Graphics gr = Graphics.FromImage(bmp);
-                    traktor.SetStartPosition(5, 5, pictureBoxTakenTransport.Width, pictureBoxTakenTransport.Height);
-                    traktor.DrawTransport(gr);
-                    pictureBoxTakenTransport.Image = bmp;
+                    var traktor = parking[listBoxParkingLevels.SelectedIndex] - Convert.ToInt32(maskedTextBoxPlaceNumber.Text);
+                    if (traktor != null)
+                    {
+                        Bitmap bmp = new Bitmap(pictureBoxTakenTransport.Width, pictureBoxTakenTransport.Height);
+                        Graphics gr = Graphics.FromImage(bmp);
+                        traktor.SetStartPosition(5, 5, pictureBoxTakenTransport.Width, pictureBoxTakenTransport.Height);
+                        traktor.DrawTransport(gr);
+                        pictureBoxTakenTransport.Image = bmp;
+                    }
+                    else
+                    {
+                        Bitmap bmp = new Bitmap(pictureBoxTakenTransport.Width, pictureBoxTakenTransport.Height);
+                        pictureBoxTakenTransport.Image = bmp;
+                    }
+                    Draw();
                 }
-                else
-                {
-                    Bitmap bmp = new Bitmap(pictureBoxTakenTransport.Width, pictureBoxTakenTransport.Height);
-                    pictureBoxTakenTransport.Image = bmp;
-                }
-                Draw();
             }
+        }
+        private void listBoxParkingLevels_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Draw();
         }
     }
 }

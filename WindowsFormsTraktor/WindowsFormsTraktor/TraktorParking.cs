@@ -1,10 +1,14 @@
 ﻿using System.Drawing;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace WindowsFormsTraktor
 {
     public class TraktorParking<T> where T : class, ITransport
     {
-        private T[] ParkingPlaces;
+        private Dictionary<int, T> ParkingPlaces;
+
+        private int MaxPlacesOnParking;
 
         private int PictureWidth { get; set; }
         private int PictureHeight { get; set; }
@@ -14,27 +18,28 @@ namespace WindowsFormsTraktor
 
         public TraktorParking(int size, int picwidth, int picheight)
         {
-            ParkingPlaces = new T[size];
+            MaxPlacesOnParking = size;
+            ParkingPlaces = new Dictionary<int, T>();
             PictureWidth = picwidth;
             PictureHeight = picheight;
-            for (int i = 0; i < ParkingPlaces.Length; i++)
-            {
-                ParkingPlaces[i] = null;
-            }
         }
 
-        private bool CheckFreePlace(int placeid)
+        private bool CheckFreePlace(int index)
         {
-            return ParkingPlaces[placeid] == null;
+            return !ParkingPlaces.ContainsKey(index);
         }
 
         public static int operator +(TraktorParking<T> p, T newtraktor)
         {
-            for (int i = 0; i < p.ParkingPlaces.Length; i++)
+            if (p.ParkingPlaces.Count == p.MaxPlacesOnParking)
+            {
+                return -1;
+            }
+            for (int i = 0; i < p.MaxPlacesOnParking; i++)
             {
                 if (p.CheckFreePlace(i))
                 {
-                    p.ParkingPlaces[i] = newtraktor;
+                    p.ParkingPlaces.Add(i, newtraktor);
                     p.ParkingPlaces[i].SetStartPosition(5 + i / 5 * ParkingPlaceWidth + 5, i % 5 * ParkingPlaceHeight + 15, p.PictureWidth, p.PictureHeight);
                     return i;
                 }
@@ -44,14 +49,10 @@ namespace WindowsFormsTraktor
 
         public static T operator -(TraktorParking<T> p, int index)
         {
-            if (index < 0 || index > p.ParkingPlaces.Length)
-            {
-                return null;
-            }
             if (!p.CheckFreePlace(index))
             {
                 T newtraktor = p.ParkingPlaces[index];
-                p.ParkingPlaces[index] = null;
+                p.ParkingPlaces.Remove(index);
                 return newtraktor;
             }
             return null;
@@ -60,8 +61,8 @@ namespace WindowsFormsTraktor
         private void DrawMarking(Graphics g)
         {
             Pen pen = new Pen(Color.Red, 5);
-            g.DrawRectangle(pen, 0, 0, (ParkingPlaces.Length / 5) * ParkingPlaceWidth, 350);
-            for (int i = 0; i < ParkingPlaces.Length / 5; i++)
+            g.DrawRectangle(pen, 0, 0, (MaxPlacesOnParking / 5) * ParkingPlaceWidth, 350);
+            for (int i = 0; i < MaxPlacesOnParking / 5; i++)
             {
                 for (int j = 0; j < 6; j++)
                 {
@@ -74,12 +75,10 @@ namespace WindowsFormsTraktor
         public void Draw(Graphics g)
         {
             DrawMarking(g);
-            for (int i = 0; i < ParkingPlaces.Length; i++)
+            var keys = ParkingPlaces.Keys.ToList();
+            for (int i = 0; i < keys.Count; i++)
             {
-                if (!CheckFreePlace(i))
-                {
-                    ParkingPlaces[i].DrawTransport(g);
-                }
+                ParkingPlaces[keys[i]].DrawTransport(g);
             }
         }
     }

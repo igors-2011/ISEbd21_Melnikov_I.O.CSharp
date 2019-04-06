@@ -36,6 +36,7 @@
             this.btnPickupTraktor = new System.Windows.Forms.Button();
             this.maskedTextBoxPlaceNumber = new System.Windows.Forms.MaskedTextBox();
             this.labelPlace = new System.Windows.Forms.Label();
+            this.listBoxParkingLevels = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.groupBoxTraktorPickup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakenTransport)).BeginInit();
@@ -52,7 +53,7 @@
             // 
             // btnParkTraktor
             // 
-            this.btnParkTraktor.Location = new System.Drawing.Point(722, 36);
+            this.btnParkTraktor.Location = new System.Drawing.Point(722, 147);
             this.btnParkTraktor.Name = "btnParkTraktor";
             this.btnParkTraktor.Size = new System.Drawing.Size(151, 48);
             this.btnParkTraktor.TabIndex = 1;
@@ -62,7 +63,7 @@
             // 
             // btnParkTraktorExcavator
             // 
-            this.btnParkTraktorExcavator.Location = new System.Drawing.Point(722, 90);
+            this.btnParkTraktorExcavator.Location = new System.Drawing.Point(722, 201);
             this.btnParkTraktorExcavator.Name = "btnParkTraktorExcavator";
             this.btnParkTraktorExcavator.Size = new System.Drawing.Size(151, 48);
             this.btnParkTraktorExcavator.TabIndex = 2;
@@ -118,11 +119,21 @@
             this.labelPlace.TabIndex = 0;
             this.labelPlace.Text = "Место";
             // 
+            // listBoxParkingLevels
+            // 
+            this.listBoxParkingLevels.FormattingEnabled = true;
+            this.listBoxParkingLevels.Location = new System.Drawing.Point(722, 18);
+            this.listBoxParkingLevels.Name = "listBoxParkingLevels";
+            this.listBoxParkingLevels.Size = new System.Drawing.Size(150, 121);
+            this.listBoxParkingLevels.TabIndex = 4;
+            this.listBoxParkingLevels.SelectedIndexChanged += new System.EventHandler(this.listBoxParkingLevels_SelectedIndexChanged);
+            // 
             // FormTraktorParking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 462);
+            this.Controls.Add(this.listBoxParkingLevels);
             this.Controls.Add(this.groupBoxTraktorPickup);
             this.Controls.Add(this.btnParkTraktorExcavator);
             this.Controls.Add(this.btnParkTraktor);
@@ -147,5 +158,6 @@
         private System.Windows.Forms.Button btnPickupTraktor;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxPlaceNumber;
         private System.Windows.Forms.Label labelPlace;
+        private System.Windows.Forms.ListBox listBoxParkingLevels;
     }
 }
