@@ -38,16 +38,16 @@ namespace WindowsFormsTraktor
             switch ((sender as Button).Name)
             {
                 case "btn_up":
-                    transport.MoveTransport(Vehicle.MovingDirections.up);
+                    transport.MoveTransport(MovingDirections.up);
                     break;
                 case "btn_down":
-                    transport.MoveTransport(Vehicle.MovingDirections.down);
+                    transport.MoveTransport(MovingDirections.down);
                     break;
                 case "btn_left":
-                    transport.MoveTransport(Vehicle.MovingDirections.left);
+                    transport.MoveTransport(MovingDirections.left);
                     break;
                 case "btn_right":
-                    transport.MoveTransport(Vehicle.MovingDirections.right);
+                    transport.MoveTransport(MovingDirections.right);
                     break;
             }
             Draw();
