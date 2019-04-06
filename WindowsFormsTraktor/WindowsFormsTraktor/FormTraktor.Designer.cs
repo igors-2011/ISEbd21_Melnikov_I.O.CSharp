@@ -35,6 +35,7 @@
             this.btn_up = new System.Windows.Forms.Button();
             this.btn_left = new System.Windows.Forms.Button();
             this.btn_down = new System.Windows.Forms.Button();
+            this.buttonCreateTraktorExcavator = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTraktor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,11 +102,22 @@
             this.btn_down.UseVisualStyleBackColor = true;
             this.btn_down.Click += new System.EventHandler(this.MoveTraktor);
             // 
+            // buttonCreateTraktorExcavator
+            // 
+            this.buttonCreateTraktorExcavator.Location = new System.Drawing.Point(710, 49);
+            this.buttonCreateTraktorExcavator.Name = "buttonCreateTraktorExcavator";
+            this.buttonCreateTraktorExcavator.Size = new System.Drawing.Size(162, 31);
+            this.buttonCreateTraktorExcavator.TabIndex = 6;
+            this.buttonCreateTraktorExcavator.Text = "Создать экскаватор";
+            this.buttonCreateTraktorExcavator.UseVisualStyleBackColor = true;
+            this.buttonCreateTraktorExcavator.Click += new System.EventHandler(this.CreateExcavator);
+            // 
             // FormTraktor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 462);
+            this.Controls.Add(this.buttonCreateTraktorExcavator);
             this.Controls.Add(this.btn_down);
             this.Controls.Add(this.btn_left);
             this.Controls.Add(this.btn_up);
@@ -128,6 +140,7 @@
         private System.Windows.Forms.Button btn_up;
         private System.Windows.Forms.Button btn_left;
         private System.Windows.Forms.Button btn_down;
+        private System.Windows.Forms.Button buttonCreateTraktorExcavator;
     }
 }
 
