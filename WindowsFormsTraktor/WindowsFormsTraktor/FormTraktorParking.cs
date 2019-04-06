@@ -44,8 +44,7 @@ namespace WindowsFormsTraktor
                     int place = parking[listBoxParkingLevels.SelectedIndex] + traktor;
                     if (place == -1)
                     {
-                        MessageBox.Show("Нет свободных мест", "Ошибка (но на самом деле ошибка это твоё рождение)",
-                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     Draw();
                 }
