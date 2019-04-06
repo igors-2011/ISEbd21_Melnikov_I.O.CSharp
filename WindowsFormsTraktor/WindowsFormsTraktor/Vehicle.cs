@@ -4,8 +4,6 @@ namespace WindowsFormsTraktor
 {
     public abstract class Vehicle : ITransport
     {
-        
-
         protected int StartPosX;
         protected int StartPosY;
 

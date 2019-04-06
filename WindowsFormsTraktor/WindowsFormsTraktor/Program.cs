@@ -16,7 +16,7 @@ namespace WindowsFormsTraktor
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormTraktor());
+            Application.Run(new FormTraktorParking());
         }
     }
 }
