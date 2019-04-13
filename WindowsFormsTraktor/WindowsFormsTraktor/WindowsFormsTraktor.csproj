@@ -51,6 +51,12 @@
     <Compile Include="FormTraktor.Designer.cs">
       <DependentUpon>FormTraktor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTraktorConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTraktorConfig.Designer.cs">
+      <DependentUpon>FormTraktorConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTraktorParking.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Compile Include="Vehicle.cs" />
     <EmbeddedResource Include="FormTraktor.resx">
       <DependentUpon>FormTraktor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTraktorConfig.resx">
+      <DependentUpon>FormTraktorConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTraktorParking.resx">
       <DependentUpon>FormTraktorParking.cs</DependentUpon>

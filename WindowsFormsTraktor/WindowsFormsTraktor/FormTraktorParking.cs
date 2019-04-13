@@ -8,6 +8,8 @@ namespace WindowsFormsTraktor
     {
         MultiLevelTraktorParking parking;
 
+        FormTraktorConfig form;
+
         private const int levels = 5;
 
         private void Draw()
@@ -97,5 +99,27 @@ namespace WindowsFormsTraktor
         {
             Draw();
         }
+
+        private void AddTransport(ITransport traktor)
+        {
+            if (traktor != null && listBoxParkingLevels.SelectedIndex > -1)
+            {
+                int place = parking[listBoxParkingLevels.SelectedIndex] + traktor;
+                if (place > -1)
+                {
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Машину не удалось поставить");
+                }
+            }
+        }        private void buttonAddTransport_Click(object sender, EventArgs e)
+        {
+            form = new FormTraktorConfig();
+            form.AddEvent(AddTransport);
+            form.Show();
+        }
+
     }
 }

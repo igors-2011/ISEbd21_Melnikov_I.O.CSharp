@@ -7,5 +7,6 @@ namespace WindowsFormsTraktor
         void SetStartPosition(int x, int y, int picwidth, int picheight);
         void MoveTransport(MovingDirections direction);
         void DrawTransport(Graphics g);
+        void SetMainColor(Color main);
     }
 }

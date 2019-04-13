@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             this.pictureBoxParking = new System.Windows.Forms.PictureBox();
-            this.btnParkTraktor = new System.Windows.Forms.Button();
-            this.btnParkTraktorExcavator = new System.Windows.Forms.Button();
             this.groupBoxTraktorPickup = new System.Windows.Forms.GroupBox();
             this.pictureBoxTakenTransport = new System.Windows.Forms.PictureBox();
             this.btnPickupTraktor = new System.Windows.Forms.Button();
             this.maskedTextBoxPlaceNumber = new System.Windows.Forms.MaskedTextBox();
             this.labelPlace = new System.Windows.Forms.Label();
             this.listBoxParkingLevels = new System.Windows.Forms.ListBox();
+            this.buttonAddTransport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.groupBoxTraktorPickup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakenTransport)).BeginInit();
@@ -50,26 +49,6 @@
             this.pictureBoxParking.Size = new System.Drawing.Size(712, 462);
             this.pictureBoxParking.TabIndex = 0;
             this.pictureBoxParking.TabStop = false;
-            // 
-            // btnParkTraktor
-            // 
-            this.btnParkTraktor.Location = new System.Drawing.Point(722, 147);
-            this.btnParkTraktor.Name = "btnParkTraktor";
-            this.btnParkTraktor.Size = new System.Drawing.Size(151, 48);
-            this.btnParkTraktor.TabIndex = 1;
-            this.btnParkTraktor.Text = "Припарковать трактор";
-            this.btnParkTraktor.UseVisualStyleBackColor = true;
-            this.btnParkTraktor.Click += new System.EventHandler(this.ParkTraktor);
-            // 
-            // btnParkTraktorExcavator
-            // 
-            this.btnParkTraktorExcavator.Location = new System.Drawing.Point(722, 201);
-            this.btnParkTraktorExcavator.Name = "btnParkTraktorExcavator";
-            this.btnParkTraktorExcavator.Size = new System.Drawing.Size(151, 48);
-            this.btnParkTraktorExcavator.TabIndex = 2;
-            this.btnParkTraktorExcavator.Text = "Припарковать трактор-экскаватор";
-            this.btnParkTraktorExcavator.UseVisualStyleBackColor = true;
-            this.btnParkTraktorExcavator.Click += new System.EventHandler(this.ParkTraktorExcavator);
             // 
             // groupBoxTraktorPickup
             // 
@@ -128,15 +107,24 @@
             this.listBoxParkingLevels.TabIndex = 4;
             this.listBoxParkingLevels.SelectedIndexChanged += new System.EventHandler(this.listBoxParkingLevels_SelectedIndexChanged);
             // 
+            // buttonAddTransport
+            // 
+            this.buttonAddTransport.Location = new System.Drawing.Point(722, 155);
+            this.buttonAddTransport.Name = "buttonAddTransport";
+            this.buttonAddTransport.Size = new System.Drawing.Size(149, 31);
+            this.buttonAddTransport.TabIndex = 5;
+            this.buttonAddTransport.Text = "Добавить технику";
+            this.buttonAddTransport.UseVisualStyleBackColor = true;
+            this.buttonAddTransport.Click += new System.EventHandler(this.buttonAddTransport_Click);
+            // 
             // FormTraktorParking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 462);
+            this.Controls.Add(this.buttonAddTransport);
             this.Controls.Add(this.listBoxParkingLevels);
             this.Controls.Add(this.groupBoxTraktorPickup);
-            this.Controls.Add(this.btnParkTraktorExcavator);
-            this.Controls.Add(this.btnParkTraktor);
             this.Controls.Add(this.pictureBoxParking);
             this.Name = "FormTraktorParking";
             this.Text = "Стоянка";
@@ -151,13 +139,12 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxParking;
-        private System.Windows.Forms.Button btnParkTraktor;
-        private System.Windows.Forms.Button btnParkTraktorExcavator;
         private System.Windows.Forms.GroupBox groupBoxTraktorPickup;
         private System.Windows.Forms.PictureBox pictureBoxTakenTransport;
         private System.Windows.Forms.Button btnPickupTraktor;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxPlaceNumber;
         private System.Windows.Forms.Label labelPlace;
         private System.Windows.Forms.ListBox listBoxParkingLevels;
+        private System.Windows.Forms.Button buttonAddTransport;
     }
 }
