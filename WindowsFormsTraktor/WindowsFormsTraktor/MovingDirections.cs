@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsTraktor
+namespace WindowsFormsTraktor
 {
     public enum MovingDirections
     {
