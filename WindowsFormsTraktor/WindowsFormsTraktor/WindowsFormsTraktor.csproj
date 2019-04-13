@@ -58,6 +58,7 @@
       <DependentUpon>FormTraktorParking.cs</DependentUpon>
     </Compile>
     <Compile Include="ITransport.cs" />
+    <Compile Include="MovingDirections.cs" />
     <Compile Include="MultiLevelTraktorParking.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
