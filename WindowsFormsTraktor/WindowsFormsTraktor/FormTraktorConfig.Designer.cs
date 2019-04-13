@@ -30,9 +30,13 @@
         {
             this.pictureBoxTraktor = new System.Windows.Forms.PictureBox();
             this.groupBoxTransportSelection = new System.Windows.Forms.GroupBox();
-            this.labelTraktor = new System.Windows.Forms.Label();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.labelTraktorExcavator = new System.Windows.Forms.Label();
+            this.labelTraktor = new System.Windows.Forms.Label();
             this.panelForPictureBox = new System.Windows.Forms.Panel();
+            this.labelDopColor = new System.Windows.Forms.Label();
+            this.labelMainColor = new System.Windows.Forms.Label();
             this.panelBlack = new System.Windows.Forms.Panel();
             this.panelPink = new System.Windows.Forms.Panel();
             this.panelBlue = new System.Windows.Forms.Panel();
@@ -42,10 +46,6 @@
             this.panelGray = new System.Windows.Forms.Panel();
             this.panelRed = new System.Windows.Forms.Panel();
             this.groupBoxColorSelection = new System.Windows.Forms.GroupBox();
-            this.labelMainColor = new System.Windows.Forms.Label();
-            this.labelDopColor = new System.Windows.Forms.Label();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTraktor)).BeginInit();
             this.groupBoxTransportSelection.SuspendLayout();
             this.panelForPictureBox.SuspendLayout();
@@ -67,22 +67,31 @@
             this.groupBoxTransportSelection.Controls.Add(this.buttonCancel);
             this.groupBoxTransportSelection.Controls.Add(this.labelTraktorExcavator);
             this.groupBoxTransportSelection.Controls.Add(this.labelTraktor);
-            this.groupBoxTransportSelection.Location = new System.Drawing.Point(43, 110);
+            this.groupBoxTransportSelection.Location = new System.Drawing.Point(12, 12);
             this.groupBoxTransportSelection.Name = "groupBoxTransportSelection";
-            this.groupBoxTransportSelection.Size = new System.Drawing.Size(188, 282);
+            this.groupBoxTransportSelection.Size = new System.Drawing.Size(188, 218);
             this.groupBoxTransportSelection.TabIndex = 1;
             this.groupBoxTransportSelection.TabStop = false;
             this.groupBoxTransportSelection.Text = "Тип техники";
             // 
-            // labelTraktor
+            // buttonAdd
             // 
-            this.labelTraktor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelTraktor.Location = new System.Drawing.Point(6, 42);
-            this.labelTraktor.Name = "labelTraktor";
-            this.labelTraktor.Size = new System.Drawing.Size(166, 23);
-            this.labelTraktor.TabIndex = 0;
-            this.labelTraktor.Text = "Трактор";
-            this.labelTraktor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelTraktor_MouseDown);
+            this.buttonAdd.Location = new System.Drawing.Point(69, 136);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(103, 30);
+            this.buttonAdd.TabIndex = 3;
+            this.buttonAdd.Text = "Добавить";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonOk_Click);
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Location = new System.Drawing.Point(69, 172);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(103, 29);
+            this.buttonCancel.TabIndex = 2;
+            this.buttonCancel.Text = "Отмена";
+            this.buttonCancel.UseVisualStyleBackColor = true;
             // 
             // labelTraktorExcavator
             // 
@@ -94,6 +103,16 @@
             this.labelTraktorExcavator.Text = "Трактор-экскаватор";
             this.labelTraktorExcavator.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelTraktorExcavator_MouseDown);
             // 
+            // labelTraktor
+            // 
+            this.labelTraktor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelTraktor.Location = new System.Drawing.Point(6, 42);
+            this.labelTraktor.Name = "labelTraktor";
+            this.labelTraktor.Size = new System.Drawing.Size(166, 23);
+            this.labelTraktor.TabIndex = 0;
+            this.labelTraktor.Text = "Трактор";
+            this.labelTraktor.MouseDown += new System.Windows.Forms.MouseEventHandler(this.labelTraktor_MouseDown);
+            // 
             // panelForPictureBox
             // 
             this.panelForPictureBox.AllowDrop = true;
@@ -101,12 +120,36 @@
             this.panelForPictureBox.Controls.Add(this.labelDopColor);
             this.panelForPictureBox.Controls.Add(this.labelMainColor);
             this.panelForPictureBox.Controls.Add(this.pictureBoxTraktor);
-            this.panelForPictureBox.Location = new System.Drawing.Point(267, 110);
+            this.panelForPictureBox.Location = new System.Drawing.Point(206, 12);
             this.panelForPictureBox.Name = "panelForPictureBox";
             this.panelForPictureBox.Size = new System.Drawing.Size(154, 181);
             this.panelForPictureBox.TabIndex = 2;
             this.panelForPictureBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelForPictureBox_DragDrop);
             this.panelForPictureBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelForPictureBox_DragEnter);
+            // 
+            // labelDopColor
+            // 
+            this.labelDopColor.AllowDrop = true;
+            this.labelDopColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelDopColor.Location = new System.Drawing.Point(21, 135);
+            this.labelDopColor.Name = "labelDopColor";
+            this.labelDopColor.Size = new System.Drawing.Size(110, 30);
+            this.labelDopColor.TabIndex = 2;
+            this.labelDopColor.Text = "Дополнительный цвет";
+            this.labelDopColor.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelDopColor_DragDrop);
+            this.labelDopColor.DragEnter += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragEnter);
+            // 
+            // labelMainColor
+            // 
+            this.labelMainColor.AllowDrop = true;
+            this.labelMainColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelMainColor.Location = new System.Drawing.Point(21, 87);
+            this.labelMainColor.Name = "labelMainColor";
+            this.labelMainColor.Size = new System.Drawing.Size(110, 30);
+            this.labelMainColor.TabIndex = 1;
+            this.labelMainColor.Text = "Основной цвет";
+            this.labelMainColor.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragDrop);
+            this.labelMainColor.DragEnter += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragEnter);
             // 
             // panelBlack
             // 
@@ -198,61 +241,18 @@
             this.groupBoxColorSelection.Controls.Add(this.panelGreen);
             this.groupBoxColorSelection.Controls.Add(this.panelRed);
             this.groupBoxColorSelection.Controls.Add(this.panelBlack);
-            this.groupBoxColorSelection.Location = new System.Drawing.Point(450, 91);
+            this.groupBoxColorSelection.Location = new System.Drawing.Point(366, 12);
             this.groupBoxColorSelection.Name = "groupBoxColorSelection";
             this.groupBoxColorSelection.Size = new System.Drawing.Size(118, 200);
             this.groupBoxColorSelection.TabIndex = 11;
             this.groupBoxColorSelection.TabStop = false;
             this.groupBoxColorSelection.Text = "Выбор цвета";
             // 
-            // labelMainColor
-            // 
-            this.labelMainColor.AllowDrop = true;
-            this.labelMainColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelMainColor.Location = new System.Drawing.Point(21, 87);
-            this.labelMainColor.Name = "labelMainColor";
-            this.labelMainColor.Size = new System.Drawing.Size(110, 30);
-            this.labelMainColor.TabIndex = 1;
-            this.labelMainColor.Text = "Основной цвет";
-            this.labelMainColor.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragDrop);
-            this.labelMainColor.DragEnter += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragEnter);
-            // 
-            // labelDopColor
-            // 
-            this.labelDopColor.AllowDrop = true;
-            this.labelDopColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelDopColor.Location = new System.Drawing.Point(21, 135);
-            this.labelDopColor.Name = "labelDopColor";
-            this.labelDopColor.Size = new System.Drawing.Size(110, 30);
-            this.labelDopColor.TabIndex = 2;
-            this.labelDopColor.Text = "Дополнительный цвет";
-            this.labelDopColor.DragDrop += new System.Windows.Forms.DragEventHandler(this.labelDopColor_DragDrop);
-            this.labelDopColor.DragEnter += new System.Windows.Forms.DragEventHandler(this.labelMainColor_DragEnter);
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.Location = new System.Drawing.Point(69, 192);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(103, 29);
-            this.buttonCancel.TabIndex = 2;
-            this.buttonCancel.Text = "Отмена";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.Location = new System.Drawing.Point(69, 136);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(103, 30);
-            this.buttonAdd.TabIndex = 3;
-            this.buttonAdd.Text = "Добавить";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonOk_Click);
-            // 
             // FormTraktorConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(506, 245);
             this.Controls.Add(this.groupBoxColorSelection);
             this.Controls.Add(this.panelForPictureBox);
             this.Controls.Add(this.groupBoxTransportSelection);

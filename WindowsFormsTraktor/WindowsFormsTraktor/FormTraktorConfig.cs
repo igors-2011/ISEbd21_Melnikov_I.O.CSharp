@@ -77,7 +77,7 @@ namespace WindowsFormsTraktor
                     traktor = new Traktor(Color.Gray, 20, 10, 10, pictureBoxTraktor.Width, pictureBoxTraktor.Height);
                     break;
                 case "Трактор-экскаватор":
-                    traktor = new TraktorExcavator(Color.Gray, Color.Pink, 20, 10, 10, pictureBoxTraktor.Width, pictureBoxTraktor.Height, true, true);
+                    traktor = new TraktorExcavator(Color.Gray, Color.Gray, 20, 10, 10, pictureBoxTraktor.Width, pictureBoxTraktor.Height, true, true);
                     break;
             }
             DrawTransport();
@@ -131,6 +131,5 @@ namespace WindowsFormsTraktor
             EventAddTransport?.Invoke(traktor);
             Close();
         }
-
     }
 }
