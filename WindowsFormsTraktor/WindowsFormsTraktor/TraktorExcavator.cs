@@ -62,5 +62,9 @@ namespace WindowsFormsTraktor
                 });
             }
         }
+        public void SetDopColor(Color dop)
+        {
+            DopColor = dop;
+        }
     }
 }

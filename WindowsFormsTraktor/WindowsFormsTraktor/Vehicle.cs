@@ -22,6 +22,11 @@ namespace WindowsFormsTraktor
             PictureHeight = picheight;
         }
 
+        public void SetMainColor(Color main)
+        {
+            MainColor = main;
+        }
+
         public abstract void MoveTransport(MovingDirections direction);
 
         public abstract void DrawTransport(Graphics g);
