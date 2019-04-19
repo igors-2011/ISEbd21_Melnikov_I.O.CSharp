@@ -81,5 +81,25 @@ namespace WindowsFormsTraktor
                 ParkingPlaces[keys[i]].DrawTransport(g);
             }
         }
+
+        public T this[int ind]
+        {
+            get
+            {
+                if (ParkingPlaces.ContainsKey(ind))
+                {
+                    return ParkingPlaces[ind];
+                }
+                return null;
+            }
+            set
+            {
+                if (CheckFreePlace(ind))
+                {
+                    ParkingPlaces.Add(ind, value);
+                    ParkingPlaces[ind].SetStartPosition(5 + ind / 5 * ParkingPlaceWidth + 5, ind % 5 * ParkingPlaceHeight + 15, PictureWidth, PictureHeight);
+                }
+            }
+        }
     }
 }

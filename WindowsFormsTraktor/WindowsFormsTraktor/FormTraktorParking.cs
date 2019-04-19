@@ -114,7 +114,9 @@ namespace WindowsFormsTraktor
                     MessageBox.Show("Машину не удалось поставить");
                 }
             }
-        }        private void buttonAddTransport_Click(object sender, EventArgs e)
+        }
+
+        private void buttonAddTransport_Click(object sender, EventArgs e)
         {
             form = new FormTraktorConfig();
             form.AddEvent(AddTransport);
