@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace WindowsFormsTraktor
 {
@@ -7,7 +8,7 @@ namespace WindowsFormsTraktor
         private const int TraktorWidth = 90;
         private const int TraktorHeight = 50;
 
-        public Traktor (Color main, int step, int startx, int starty, int picwidth, int picheight)
+        public Traktor(Color main, int step, int startx, int starty, int picwidth, int picheight)
         {
             MainColor = main;
             StartPosX = startx;
@@ -15,6 +16,20 @@ namespace WindowsFormsTraktor
             PictureWidth = picwidth;
             PictureHeight = picheight;
             MovingStep = step;
+        }
+
+        public Traktor(string information)
+        {
+            string[] traktorinfo = information.Split(';');
+            if (traktorinfo.Length == 6)
+            {
+                MainColor = Color.FromName(traktorinfo[0]);
+                StartPosX = Convert.ToInt32(traktorinfo[1]);
+                StartPosY = Convert.ToInt32(traktorinfo[2]);
+                PictureWidth = Convert.ToInt32(traktorinfo[3]);
+                PictureHeight = Convert.ToInt32(traktorinfo[4]);
+                MovingStep = Convert.ToInt32(traktorinfo[5]);
+            }
         }
 
         public override void MoveTransport(MovingDirections direction)
@@ -70,6 +85,10 @@ namespace WindowsFormsTraktor
             g.FillEllipse(GrayBrush, StartPosX + 15, StartPosY + 35, 10, 10);
             g.FillEllipse(BlackBrush, StartPosX + 50, StartPosY + 35, 15, 15);
             g.FillEllipse(GrayBrush, StartPosX + 55, StartPosY + 40, 5, 5);
+        }
+        public override string ToString()
+        {
+            return "" + MainColor.Name + ';' + StartPosX + ';' + StartPosY + ';' + PictureWidth + ';' + PictureHeight + ';' + MovingStep;
         }
     }
 }

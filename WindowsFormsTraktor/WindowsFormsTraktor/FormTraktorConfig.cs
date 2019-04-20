@@ -33,7 +33,8 @@ namespace WindowsFormsTraktor
         private void panelColor_MouseDown(object sender, MouseEventArgs e)
         {
             (sender as Control).DoDragDrop((sender as Control).BackColor, DragDropEffects.Move | DragDropEffects.Copy);
-        }
+        }
+
 
         private void DrawTransport()
         {
@@ -102,7 +103,8 @@ namespace WindowsFormsTraktor
                 traktor.SetMainColor((Color)e.Data.GetData(typeof(Color)));
                 DrawTransport();
             }
-        }
+        }
+
         private void labelDopColor_DragDrop(object sender, DragEventArgs e)
         {
             if (traktor != null)
@@ -125,7 +127,8 @@ namespace WindowsFormsTraktor
             {
                 EventAddTransport += ev;
             }
-        }
+        }
+
         private void buttonOk_Click(object sender, EventArgs e)
         {
             EventAddTransport?.Invoke(traktor);

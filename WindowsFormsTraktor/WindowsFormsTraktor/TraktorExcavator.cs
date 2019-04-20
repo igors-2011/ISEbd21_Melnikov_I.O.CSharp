@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace WindowsFormsTraktor
 {
@@ -20,6 +21,23 @@ namespace WindowsFormsTraktor
             PictureHeight = picheight;
             IsFrontBailer = frontbailer;
             IsBackBailer = backbailer;
+        }
+
+        public TraktorExcavator(string information) : base(information)
+        {
+            string[] traktorinfo = information.Split(';');
+            if (traktorinfo.Length == 9)
+            {
+                MainColor = Color.FromName(traktorinfo[0]);
+                DopColor = Color.FromName(traktorinfo[1]);
+                MovingStep = Convert.ToInt32(traktorinfo[2]);
+                StartPosX = Convert.ToInt32(traktorinfo[3]);
+                StartPosY = Convert.ToInt32(traktorinfo[4]);
+                PictureWidth = Convert.ToInt32(traktorinfo[5]);
+                PictureHeight = Convert.ToInt32(traktorinfo[6]);
+                IsFrontBailer = Convert.ToBoolean(traktorinfo[7]);
+                IsBackBailer = Convert.ToBoolean(traktorinfo[8]);
+            }
         }
 
         public override void DrawTransport(Graphics g)
@@ -65,6 +83,11 @@ namespace WindowsFormsTraktor
         public void SetDopColor(Color dop)
         {
             DopColor = dop;
+        }
+
+        public override string ToString()
+        {
+            return "" + MainColor.Name + ';' + DopColor.Name + ';' + MovingStep + ';' + StartPosX + ';' + StartPosY + ';' + PictureWidth + ';' + PictureHeight + ';' + IsFrontBailer + ';' + IsBackBailer;
         }
     }
 }
